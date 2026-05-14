@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "YouMind 微信公众号"
+  short_description: "从选题到公众号草稿箱的一体化写作发布工作流"
+  default_prompt: "使用 $youmind-wechat-skill，把主题、简报或 Markdown 初稿变成微信公众号文章，并用工具完成排版、预览或发布到草稿箱。"
