@@ -71,7 +71,7 @@ cd toolkit && npm run build
 
 - `clients/*/history.yaml`
 - `clients/*/lessons/`
-- `output/`
+- `output/{YYYY-MM-DD}/`
 - `config.yaml`
 
 如果未来作为共享插件分发，应把可变数据迁移到稳定的数据目录。

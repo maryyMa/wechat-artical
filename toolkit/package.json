@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "youmind-wechat-toolkit",
   "version": "1.0.0",
   "description": "YouMind 微信公众号工具包：将 Markdown 转成公众号 HTML，并支持动态主题",

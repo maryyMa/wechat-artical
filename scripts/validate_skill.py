@@ -34,8 +34,6 @@ REQUIRED_PATHS = [
     "toolkit/src/image-gen.ts",
     "toolkit/src/learn-edits.ts",
     "toolkit/src/youmind-api.ts",
-    "clients/demo/style.yaml",
-    "clients/demo/history.yaml",
     "agents/openai.yaml",
 ]
 
