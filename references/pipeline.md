@@ -22,6 +22,11 @@ Markdown 中引用文中图时使用相对路径 `images/{filename}`，这样移
 
 读取 `clients/{client}/style.yaml`。
 
+配置优先级：
+
+- 指定客户 `{client}` 时，优先读取 `clients/{client}/config.yaml`。
+- 只有客户目录没有 `config.yaml` 时，才退回仓库根目录 `config.yaml`。
+
 路由规则：
 
 - 客户目录不存在：提示用户参考 `references/style-template.md` 创建配置。
@@ -163,6 +168,8 @@ Markdown 中引用文中图时使用相对路径 `images/{filename}`，这样移
 默认发布到微信公众号草稿箱。
 
 使用 `cli.js publish`，主题和颜色来自 `style.yaml` 或用户覆盖参数。若有封面，带上 `--cover`。
+
+发布指定客户时，必须让 CLI 读取客户目录下的配置。推荐做法是在 `clients/{client}` 目录作为工作目录运行发布命令，Markdown、封面和输出路径使用相对路径回到仓库根目录。例如发布 `xdt` 时从 `clients/xdt` 运行，这样优先读取 `clients/xdt/config.yaml`；发布 `xx` 时从 `clients/xx` 运行，优先读取 `clients/xx/config.yaml`。
 
 发布失败时生成本地 HTML 预览，并把路径告诉用户。
 

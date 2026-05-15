@@ -28,6 +28,17 @@ node dist/cli.js publish {markdown_path} \
   [--custom-theme {theme_json_path}]
 ```
 
+客户配置优先级：
+
+- 发布任何客户 `{client}`：优先读取 `clients/{client}/config.yaml`；不存在时才使用仓库根目录 `config.yaml`。
+
+示例：
+
+```powershell
+cd clients\xdt
+node ..\..\toolkit\dist\cli.js publish ..\..\output\YYYY-MM-DD\article.md --theme simple --color "#6a994e" --cover ..\..\output\YYYY-MM-DD\images\cover.jpg --title "标题"
+```
+
 参数优先级：
 
 ```text

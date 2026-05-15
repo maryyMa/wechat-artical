@@ -162,12 +162,17 @@ youmind:
 | `references/skill-maintenance.md` | Skill 维护规范 | 改这个 Skill 本身时 |
 | `references/builtin-themes.json` | 内置主题 CSS 示例 | 参考或定制主题时 |
 | `clients/{client}/style.yaml` | 账号定位、语气、选题、黑名单、主题 | Step 1 |
+| `clients/{client}/config.yaml` | 指定账号的微信、YouMind、生图配置；发布该客户时优先使用 | Step 1、Step 7 |
 | `clients/{client}/playbook.md` | 专属写作手册 | Step 4 |
 | `clients/{client}/history.yaml` | 历史文章记录 | Step 2.5 去重 |
-| `config.yaml` | 微信、YouMind、生图配置 | 首次检查和发布时 |
+| `config.yaml` | 全局微信、YouMind、生图配置；仅在客户目录没有 config 时兜底 | 首次检查和发布时 |
 | `output/{YYYY-MM-DD}/` | 当天完稿、预览、图片、视觉方案和分析报告 | 生成任何交付物时 |
 | `toolkit/dist/*.js` | 编译后的可执行脚本 | 运行工具时 |
 | `scripts/*.py` | 热点和 SEO 辅助脚本 | Step 2、Step 2.5 |
+
+客户配置优先级：
+
+- 通用规则：发布任何指定客户 `{client}` 时，优先使用 `clients/{client}/config.yaml`；该文件不存在时才退回仓库根目录 `config.yaml`。
 
 ## 执行模式
 
@@ -194,6 +199,7 @@ youmind:
 11. 默认发布到公众号草稿箱。发布失败时生成本地 HTML 预览。
 12. 所有生成到 `output/` 的完稿内容必须先进入当天日期目录，如 `output/2026-05-14/`；图片放在该日期目录下的 `images/`。
 13. Step 5.5 之后，人工打磨后的 Markdown 是最终正文。AI 不再改正文观点、段落、语气和表达，只能做图片引用、路径修正、预览和发布所需处理。
+14. 指定客户发布时必须优先读取 `clients/{client}/config.yaml`。不要因为仓库根目录没有 `config.yaml` 就判定无法发布。
 
 ## 流水线总览
 
